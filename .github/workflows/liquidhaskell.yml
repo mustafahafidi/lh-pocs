@@ -62,4 +62,4 @@ jobs:
 
       - name: Running LiquidHaskell
         run: |
-          stack --resolver=lts-15.4 exec -- ~/.local/bin/liquid -isrc/ ${{matrix.lh-entry}} || true
+          stack --stack-yaml=/home/runner/liquidhaskell/stack.yaml exec -- ~/.local/bin/liquid -isrc/ ${{matrix.lh-entry}}
