@@ -2,6 +2,7 @@ module FileB where
 import FileA
 
 {-@ LIQUID "--reflection" @-}
+
 foo = Just 7
 
 
