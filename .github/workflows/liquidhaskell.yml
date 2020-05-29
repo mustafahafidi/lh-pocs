@@ -11,8 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        lh-entry: [FileA.hs, FileB.hs]
+        lh-entry: [FileA.hs, FileB.hs, Ple.hs]
     steps:
+      - if: ${{ always() }}
       - name: Check out
         uses: actions/checkout@v2
 
