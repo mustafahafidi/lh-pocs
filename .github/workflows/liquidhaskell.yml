@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        lh-entry: [FileA.hs, FileB.hs, Ple.hs]
+        lh-entry: [Test.hs]
     steps:
       - name: Check out
         uses: actions/checkout@v2
@@ -21,14 +21,18 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ~/.stack
-          key: stack-global-2-${{ hashFiles('.github/workflows/**.yml') }}
+          key:
+            stack-global-2-d395db9f5874ee57aa4afb10f9b47669458f03a8b9e7dbbc0f75b126aaa8b96e
+            # ${{ hashFiles('.github/workflows/**.yml') }}
 
       - name: Cache liquidhaskell
         id: cache-lh
         uses: actions/cache@v1
         with:
           path: ~/liquidhaskell
-          key: liquidhaskell-2-${{ hashFiles('.github/workflows/**.yml') }}
+          key:
+            liquidhaskell-2-d395db9f5874ee57aa4afb10f9b47669458f03a8b9e7dbbc0f75b126aaa8b96e
+            # ${{ hashFiles('.github/workflows/**.yml') }}
           # restore-keys: stack-global-${{ hashFiles('.github/workflows/**.yaml') }}
       - name: Cache stack bin
         id: cache-bin
@@ -36,7 +40,8 @@ jobs:
         with:
           path: ~/.local/bin
           key:
-            stack-global-bin-2-${{ hashFiles('.github/workflows/**.yml') }}
+            stack-global-bin-2-d395db9f5874ee57aa4afb10f9b47669458f03a8b9e7dbbc0f75b126aaa8b96e
+            ${{ hashFiles('.github/workflows/**.yml') }}
             #${{ hashFiles('**/haskell.yml') }}
 
       - name: Install z3

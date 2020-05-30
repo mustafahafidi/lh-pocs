@@ -1,18 +1,22 @@
-import Language.Haskell.Liquid.ProofCombinators
+module Test where
 
+import Language.Haskell.Liquid.ProofCombinators
+import SlimPrelude
+import CircularList
+
+import Prelude hiding (length, 
+                        (++), 
+                        reverse,
+                        any
+                        )
 
 {-@ LIQUID "--ple-local" @-}
--- @ LIQUID "--exactdc" @
+{-@ LIQUID "--reflection" @-}
+{-@ LIQUID "--no-adt" @-}
 
 
-
-data CList a = Empty
-             | CList [a] a [a]
-
-
-{-@ reflect singleton @-}
-singleton :: a -> CList a
-singleton e = CList [] e [] 
+-- data CList a = Empty
+--              | CList [a] a [a]
 
 {-@ reflect toList @-}
 toList :: CList a -> [a]
@@ -38,3 +42,4 @@ lemma_refl = Empty =*= Empty
 lemma_refl_proof :: Proof
 lemma_refl_proof = lemma_refl
                 *** QED
+
