@@ -5,6 +5,7 @@ import Language.Haskell.Liquid.ProofCombinators
 -- @ LIQUID "--exactdc" @
 
 
+
 data CList a = Empty
              | CList [a] a [a]
 
