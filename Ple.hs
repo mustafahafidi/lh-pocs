@@ -1,3 +1,6 @@
+import Language.Haskell.Liquid.ProofCombinators
+
+
 {-@ LIQUID "--ple-local" @-}
 -- @ LIQUID "--exactdc" @
 
