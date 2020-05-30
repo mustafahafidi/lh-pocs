@@ -21,14 +21,14 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ~/.stack
-          key: stack-global-2-${{ hashFiles('.github/workflows/**.yaml') }}
+          key: stack-global-2-${{ hashFiles('.github/workflows/**.yml') }}
 
       - name: Cache liquidhaskell
         id: cache-lh
         uses: actions/cache@v1
         with:
           path: ~/liquidhaskell
-          key: liquidhaskell-2-${{ hashFiles('.github/workflows/**.yaml') }}
+          key: liquidhaskell-2-${{ hashFiles('.github/workflows/**.yml') }}
           # restore-keys: stack-global-${{ hashFiles('.github/workflows/**.yaml') }}
       - name: Cache stack bin
         id: cache-bin
@@ -36,7 +36,7 @@ jobs:
         with:
           path: ~/.local/bin
           key:
-            stack-global-bin-2-${{ hashFiles('.github/workflows/**.yaml') }}
+            stack-global-bin-2-${{ hashFiles('.github/workflows/**.yml') }}
             #${{ hashFiles('**/haskell.yml') }}
 
       - name: Install z3
